@@ -1,0 +1,15 @@
+
+Used Two package to test:
+    1. xlsx
+    2. exceljs
+
+xlsx seem cannot edit the cell values without Pro version;
+exceljs edit font style , colors , etc success;
+
+both can combine multiple excel tabs
+
+reference link:
+    exceljs: https://github.com/exceljs/exceljs#readme
+    xlsx:
+        https://github.com/SheetJS/sheetjs
+        https://sheetjs.com/

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "esModuleInterop": true,
+        "target": "ES2023",
+        "moduleResolution": "Node",
+        "sourceMap": true,
+        "outDir": "dist"
+    },
+    "compileOnSave": true,
+    "include": [
+        "src"
+    ],
+    "lib": ["ES2023"]
+}
