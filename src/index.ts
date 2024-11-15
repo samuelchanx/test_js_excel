@@ -25,7 +25,9 @@ async function test3() {
     "src/Credit summary NB V.1.2_20200504 SA EU WU.xlsm"
   );
   const ws = workbook.worksheets[0];
-  const row = ws.getRow(4);
+  console.log(ws.rowBreaks);
+  console.log(workbook.worksheets[1].rowBreaks);
+  console.log(workbook.worksheets[2].rowBreaks);
   console.log(ws.pageSetup.printArea);
 
   for (const worksheet of workbook.worksheets) {
@@ -34,6 +36,7 @@ async function test3() {
       pageSetup: worksheet.pageSetup,
       properties: worksheet.properties,
       headerFooter: worksheet.headerFooter,
+      views: worksheet.views,
     });
     const lastRowNum = worksheet.rowCount;
 
@@ -42,13 +45,13 @@ async function test3() {
         const r = ws.addRow();
         Object.assign(r, row);
         r.hidden = row.hidden;
+
         // r.height = row.height;
         // r.outlineLevel = row.outlineLevel;
       }
     });
     for (let i = 1; i <= worksheet.columnCount; i++) {
       ws.getColumn(i).width = worksheet.getColumn(i).width;
-      ws.getColumn(i).commit()
     }
     for (let i = 1; i <= worksheet.rowCount; i++) {
       if (worksheet.getRow(i).hidden) {
@@ -60,15 +63,36 @@ async function test3() {
     }
     ws.pageSetup.printArea = worksheet.pageSetup.printArea;
     if (worksheet.name === "Project Summary") {
-      console.log(worksheet.views);
-      console.log(Object.keys(worksheet));
       //   console.log(worksheet.pageSetup.printArea);
       //   console.log(ws.pageSetup.printArea);
     }
-    // ws.properties = worksheet.properties;
-    // ws.headerFooter = worksheet.headerFooter;
+    
+    ws.properties = worksheet.properties;
+    ws.headerFooter = worksheet.headerFooter;
+    ws.views = worksheet.views;
   }
-  //   const worksheet = workbook.worksheets;
+
+  const sheet = wb.worksheets[0];
+  const cell = sheet.getCell("A1");
+  cell.value = "test";
+  console.log(cell);
+  cell.style = {
+    ...cell.style,
+    font: {
+      bold: true,
+      color: {
+        argb: "FFFFFFFF",
+      },
+    },
+    fill: {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: {
+        // argb: 'FFFFFFFF'
+        argb: "00FF0000",
+      },
+    },
+  };
 
   wb.xlsx.writeFile("33-copy.xlsx").then(() => {
     console.log("done!");
