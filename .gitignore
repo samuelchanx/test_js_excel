@@ -6,3 +6,4 @@ src/*.xlsx
 src/*.xlsm
 /*.xlsx
 /*.xlsm
+~*.xlsm

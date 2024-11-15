@@ -1,4 +1,4 @@
-const commentedWorksheets = [
+export const commentedWorksheets = [
   "SA Comment",
   "MA Comment",
   "EU Comment",
