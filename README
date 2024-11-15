@@ -1,3 +1,8 @@
+## How to run
+
+- `ts-node src/xxxx.ts`
+
+## Calvin notes
 
 Used Two package to test:
     1. xlsx

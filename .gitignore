@@ -2,5 +2,7 @@ dist/**/*.js
 dist/**/*.js.map
 node_modules/
 .DS_Store
-*.xlsx
-*.xlsm
+src/*.xlsx
+src/*.xlsm
+/*.xlsx
+/*.xlsm
